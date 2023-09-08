@@ -1,7 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { ondas } from "../../services/ondas";
+import allowCors from "../../utils/cors";
 
-const test = async (req: NextApiRequest, res: NextApiResponse) => {
+const ondasEndpoint = async (req: NextApiRequest, res: NextApiResponse) => {
   // console.log(req);
 
   const ondasData = await ondas();
@@ -11,4 +12,4 @@ const test = async (req: NextApiRequest, res: NextApiResponse) => {
     .json({ msg: "teste de ondas", ondas: ondasData.hours });
 };
 
-export default test;
+export default allowCors(ondasEndpoint);
