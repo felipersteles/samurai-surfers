@@ -1,9 +1,31 @@
-import countriesJson from "../../data/countries.json";
+import locJson from "../../data/loc.json";
 
 export class CountriesController {
   getAll() {
-    const countriesData = JSON.stringify(countriesJson);
-    console.log(countriesData[0]);
-    return "todos os paises";
+    const countriesName = locJson.map((country) => {
+      return country.name;
+    });
+
+    return countriesName;
+  }
+
+  getStatesByCountryName(name: string | string[]) {
+    const countries = locJson.filter((loc) => {
+      return loc.name === name;
+    });
+
+    return countries[0].states.map((state) => {
+      return state.name;
+    });
+  }
+
+  getCityByState(country: string | string[], stateName: string | string[]) {
+    const countries = locJson.filter((loc) => {
+      return loc.name === country;
+    });
+
+    return countries[0].states.filter((state) => {
+      return state.name === stateName;
+    });
   }
 }
