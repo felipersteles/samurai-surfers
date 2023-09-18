@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Footer = () => {
-  return <FooterContainer>© Samurai surfers</FooterContainer>;
+  return <FooterContainer>© Samurai Surfers</FooterContainer>;
 };
 
 const FooterContainer = styled.footer`
