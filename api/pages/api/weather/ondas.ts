@@ -3,13 +3,11 @@ import { ondas } from "../../../services/ondas";
 import allowCors from "../../../utils/cors";
 
 const ondasEndpoint = async (req: NextApiRequest, res: NextApiResponse) => {
-  // console.log(req);
+  const { lat, lng } = req.query;
 
-  const ondasData = await ondas();
+  const ondasData = await ondas(Number(lat), Number(lng));
 
-  return res
-    .status(200)
-    .json({ msg: "teste de ondas", ondas: ondasData.hours });
+  return res.status(200).json({ msg: "teste de ondas", ondas: ondasData });
 };
 
 export default allowCors(ondasEndpoint);

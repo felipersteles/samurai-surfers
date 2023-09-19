@@ -1,5 +1,6 @@
 import { CountriesController } from "@/controllers/countries";
 import { NextApiRequest, NextApiResponse } from "next";
+import allowCors from "../../../utils/cors";
 
 const countries = async (req: NextApiRequest, res: NextApiResponse) => {
   const { query } = req;
@@ -25,4 +26,4 @@ const countries = async (req: NextApiRequest, res: NextApiResponse) => {
   return res.status(400).json({ msg: "Erro na requisição." });
 };
 
-export default countries;
+export default allowCors(countries);

@@ -24,8 +24,10 @@ export class CountriesController {
       return loc.name === country;
     });
 
-    return countries[0].states.filter((state) => {
+    const state = countries[0].states.filter((state) => {
       return state.name === stateName;
     });
+
+    return state[0].cities;
   }
 }
