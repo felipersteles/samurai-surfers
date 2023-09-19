@@ -1,13 +1,17 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { ondas } from "../../../services/ondas";
+import { WaveService } from "../../../services";
 import allowCors from "../../../utils/cors";
 
 const ondasEndpoint = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { lat, lng } = req.query;
+  const { lat, lng, city } = req.query;
 
-  const ondasData = await ondas(Number(lat), Number(lng));
+  if (city) {
+    const ondasRes = await WaveService.getWavesByCity(city);
 
-  return res.status(200).json({ msg: "teste de ondas", ondas: ondasData });
+    return res.status(200).json(ondasRes);
+  }
+
+  return res.status(400).json({ msg: "Erro na requisição." });
 };
 
 export default allowCors(ondasEndpoint);

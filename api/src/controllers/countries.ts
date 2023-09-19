@@ -19,7 +19,7 @@ export class CountriesController {
     });
   }
 
-  getCityByState(country: string | string[], stateName: string | string[]) {
+  getCitiesByState(country: string | string[], stateName: string | string[]) {
     const countries = locJson.filter((loc) => {
       return loc.name === country;
     });
@@ -28,6 +28,8 @@ export class CountriesController {
       return state.name === stateName;
     });
 
-    return state[0].cities;
+    return state[0].cities.map((city) => {
+      return city.name;
+    });
   }
 }

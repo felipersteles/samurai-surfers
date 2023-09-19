@@ -17,7 +17,7 @@ const countries = async (req: NextApiRequest, res: NextApiResponse) => {
     if (query.state) {
       const { state } = query;
 
-      return res.json(controller.getCityByState(country, state));
+      return res.json(controller.getCitiesByState(country, state));
     }
 
     return res.json(controller.getStatesByCountryName(country));

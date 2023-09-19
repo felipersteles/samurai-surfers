@@ -3,20 +3,19 @@ import { LocationService } from "../../../../../services";
 import { useCallback, useEffect, useState } from "react";
 import { Box } from "@mui/system";
 import { SelectChangeEvent } from "@mui/material";
-import { CityDTO, LocationParams } from "../../../../../dto";
 
 type SelectPlaceParams = {
-  setOndasForm: (loc: LocationParams) => void;
+  setCity?: (city: string) => void;
 };
 
-export const SelectPlace = ({ setOndasForm }: SelectPlaceParams) => {
+export const SelectPlace = ({ setCity }: SelectPlaceParams) => {
   const [countries, setCountries] = useState<string[]>([]);
   const [selectedCountry, setSelectedCountry] = useState("-1");
 
   const [states, setStates] = useState<string[]>([]);
   const [selectedState, setSelectedState] = useState("-1");
 
-  const [cities, setCities] = useState<CityDTO[]>([]);
+  const [cities, setCities] = useState<string[]>([]);
   const [selectedCity, setSelectedCity] = useState("-1");
 
   const selectCountry = (event: SelectChangeEvent) => {
@@ -34,10 +33,7 @@ export const SelectPlace = ({ setOndasForm }: SelectPlaceParams) => {
 
   const selectCity = (event: SelectChangeEvent) => {
     setSelectedCity(event.target.value as string);
-    setOndasForm({
-      latitude: cities[event.target.value as unknown as number].latitude,
-      longitude: cities[event.target.value as unknown as number].longitude,
-    });
+    if (setCity) setCity(cities[event.target.value as unknown as number]);
   };
 
   const getCountriesFromApi = useCallback(() => {
@@ -94,11 +90,7 @@ export const SelectPlace = ({ setOndasForm }: SelectPlaceParams) => {
       <SelectPlaceView
         label="Cidade"
         elementId="city"
-        getArrayFromData={() => {
-          return cities.map((city) => {
-            return city.name;
-          });
-        }}
+        optionsList={cities}
         selected={selectedCity}
         handleChange={selectCity}
       />

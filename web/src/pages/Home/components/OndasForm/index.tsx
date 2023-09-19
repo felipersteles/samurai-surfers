@@ -11,12 +11,11 @@ import { DatePicker } from "@mui/x-date-pickers";
 import dayjs from "dayjs";
 import { SelectPlace } from "./SelectPlace";
 import { useState } from "react";
-import { LocationParams } from "../../../../dto";
 import styled from "styled-components";
 import { WeatherService } from "../../../../services";
 
 export const OndasForm = () => {
-  const [ondasForm, setOndasForm] = useState<LocationParams>();
+  const [ondasForm, setOndasForm] = useState<{ city: string }>();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -25,7 +24,18 @@ export const OndasForm = () => {
 
     if (!ondasForm) return;
 
-    WeatherService.getWavesFromLoc(ondasForm.latitude, ondasForm.longitude)
+    // WeatherService.getWavesFromCity(ondasForm.city)
+    //   .then((res) => {
+    //     console.log(ondasForm.city);
+    //     console.log(res);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+
+    // caso o limite tenha esgotado comente o codigo acima
+    // e use a rota:
+    WeatherService.getMockWaves()
       .then((res) => {
         console.log(res);
       })
@@ -34,14 +44,18 @@ export const OndasForm = () => {
       });
   };
 
+  const setCity = (city: string) => {
+    setOndasForm({ city });
+  };
+
   return (
     <OndasFormContainer onSubmit={handleSubmit}>
       <Typography>Lugar</Typography>
 
-      <SelectPlace setOndasForm={setOndasForm} />
+      <SelectPlace setCity={setCity} />
 
       <FormControl>
-        <Typography>Informações</Typography>
+        {/* <Typography>Informações</Typography>
         <RadioGroup
           row
           aria-labelledby="demo-row-radio-buttons-group-label"
@@ -72,7 +86,7 @@ export const OndasForm = () => {
         <Typography>Data</Typography>
         <Box display="flex" gap="15px">
           <DatePicker defaultValue={dayjs("2022-04-17")} />
-        </Box>
+        </Box> */}
         <Button
           sx={{
             color: "black",
