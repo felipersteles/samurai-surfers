@@ -1,20 +1,185 @@
 {
-  "hours": [
-    {
-      "time": "2023-09-19T14:00:00+00:00",
-      "waveHeight": {
-        "icon": 0.83,
-        "noaa": 1.04,
-        "sg": 0.83
+  "city": {
+    "id": 13724,
+    "name": "Paulino Neves",
+    "state_id": 2015,
+    "state_code": "MA",
+    "state_name": "Maranhão",
+    "country_id": 31,
+    "country_code": "BR",
+    "country_name": "Brazil",
+    "latitude": "-2.88588000",
+    "longitude": "-42.58808000",
+    "wikiDataId": "Q1793494"
+  },
+  "ondas": {
+    "hours": [
+      {
+        "time": "2023-09-20T12:00:00+00:00",
+        "waveHeight": {
+          "icon": 0.9,
+          "noaa": 1.18,
+          "sg": 0.9
+        },
+        "windSpeed": {
+          "icon": 4.82,
+          "noaa": 2.6,
+          "sg": 4.82
+        }
+      },
+      {
+        "time": "2023-09-20T13:00:00+00:00",
+        "waveHeight": {
+          "icon": 0.75,
+          "noaa": 1.13,
+          "sg": 0.75
+        },
+        "windSpeed": {
+          "icon": 4.03,
+          "noaa": 2.67,
+          "sg": 4.03
+        }
+      },
+      {
+        "time": "2023-09-20T14:00:00+00:00",
+        "waveHeight": {
+          "icon": 0.61,
+          "noaa": 1.08,
+          "sg": 0.61
+        },
+        "windSpeed": {
+          "icon": 3.25,
+          "noaa": 2.74,
+          "sg": 3.25
+        }
+      },
+      {
+        "time": "2023-09-20T15:00:00+00:00",
+        "waveHeight": {
+          "icon": 0.46,
+          "noaa": 1.03,
+          "sg": 0.46
+        },
+        "windSpeed": {
+          "icon": 2.46,
+          "noaa": 2.81,
+          "sg": 2.46
+        }
+      },
+      {
+        "time": "2023-09-20T16:00:00+00:00",
+        "waveHeight": {
+          "icon": 0.43,
+          "noaa": 1.06,
+          "sg": 0.43
+        },
+        "windSpeed": {
+          "icon": 3.35,
+          "noaa": 4.15,
+          "sg": 3.35
+        }
+      },
+      {
+        "time": "2023-09-20T17:00:00+00:00",
+        "waveHeight": {
+          "icon": 0.39,
+          "noaa": 1.09,
+          "sg": 0.39
+        },
+        "windSpeed": {
+          "icon": 4.23,
+          "noaa": 5.49,
+          "sg": 4.23
+        }
+      },
+      {
+        "time": "2023-09-20T18:00:00+00:00",
+        "waveHeight": {
+          "icon": 0.36,
+          "noaa": 1.12,
+          "sg": 0.36
+        },
+        "windSpeed": {
+          "icon": 5.12,
+          "noaa": 6.83,
+          "sg": 5.12
+        }
+      },
+      {
+        "time": "2023-09-20T19:00:00+00:00",
+        "waveHeight": {
+          "icon": 0.39,
+          "noaa": 1.16,
+          "sg": 0.39
+        },
+        "windSpeed": {
+          "icon": 5.14,
+          "noaa": 5.97,
+          "sg": 5.14
+        }
+      },
+      {
+        "time": "2023-09-20T20:00:00+00:00",
+        "waveHeight": {
+          "icon": 0.43,
+          "noaa": 1.19,
+          "sg": 0.43
+        },
+        "windSpeed": {
+          "icon": 5.16,
+          "noaa": 5.1,
+          "sg": 5.16
+        }
+      },
+      {
+        "time": "2023-09-20T21:00:00+00:00",
+        "waveHeight": {
+          "icon": 0.46,
+          "noaa": 1.23,
+          "sg": 0.46
+        },
+        "windSpeed": {
+          "icon": 5.18,
+          "noaa": 4.24,
+          "sg": 5.18
+        }
+      },
+      {
+        "time": "2023-09-20T22:00:00+00:00",
+        "waveHeight": {
+          "icon": 0.49,
+          "noaa": 1.22,
+          "sg": 0.49
+        },
+        "windSpeed": {
+          "icon": 5.08,
+          "noaa": 3.63,
+          "sg": 5.08
+        }
+      },
+      {
+        "time": "2023-09-20T23:00:00+00:00",
+        "waveHeight": {
+          "icon": 0.53,
+          "noaa": 1.2,
+          "sg": 0.53
+        },
+        "windSpeed": {
+          "icon": 4.98,
+          "noaa": 3.03,
+          "sg": 4.98
+        }
       }
-    },
-    {
-      "time": "2023-09-19T15:00:00+00:00",
-      "waveHeight": {
-        "icon": 0.8,
-        "noaa": 1.0,
-        "sg": 0.8
-      }
+    ],
+    "meta": {
+      "cost": 1,
+      "dailyQuota": 10,
+      "end": "2023-09-20 23:59",
+      "lat": -2.88588,
+      "lng": -42.58808,
+      "params": ["waveHeight", "windSpeed"],
+      "requestCount": 2,
+      "start": "2023-09-20 12:00"
     }
-  ]
+  }
 }

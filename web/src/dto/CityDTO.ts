@@ -1,8 +1,7 @@
 export type CityDTO = {
   id: number;
   name: string;
-  latitude: number;
-  longitude: number;
+  state: string;
 };
 
 export type LocationParams = {

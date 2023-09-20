@@ -1,4 +1,5 @@
 import locJson from "../../data/loc.json";
+import citiesJson from "../../data/cities.json";
 
 export class CountriesController {
   getAll() {
@@ -19,17 +20,13 @@ export class CountriesController {
     });
   }
 
-  getCitiesByState(country: string | string[], stateName: string | string[]) {
-    const countries = locJson.filter((loc) => {
-      return loc.name === country;
+  getCitiesByState(country: string | string[], state: string | string[]) {
+    const cities = citiesJson.filter((c) => {
+      return c.country_name === country && c.state_name === state;
     });
 
-    const state = countries[0].states.filter((state) => {
-      return state.name === stateName;
-    });
-
-    return state[0].cities.map((city) => {
-      return city.name;
+    return cities.map((city) => {
+      return { name: city.name, id: city.id, state: city.state_code };
     });
   }
 }

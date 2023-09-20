@@ -1,5 +1,6 @@
 import axios from "axios";
 import { env } from "../env";
+import { CityDTO } from "../dto";
 
 const getAllCountries = () => {
   return axios
@@ -30,8 +31,8 @@ const getAllStates = (country: string) => {
 };
 
 const getAllCities = (country: string, state: string) => {
-  return axios
-    .get(env.API_URL + "loc", {
+  const data = axios
+    .get<CityDTO[]>(env.API_URL + "loc", {
       params: {
         country,
         state,
@@ -44,6 +45,8 @@ const getAllCities = (country: string, state: string) => {
       console.log("error", err);
       return null;
     });
+
+  return data;
 };
 
 export const LocationService = {

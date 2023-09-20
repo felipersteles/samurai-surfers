@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
 import { ThemeProvider, createTheme } from "@material-ui/core";
 import { GlobalStyles } from "@mui/material";
 import { pallete } from "./style";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./navigation";
 
 const theme = createTheme({
   palette: {
@@ -31,7 +32,7 @@ root.render(
 
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <React.StrictMode>
-        <App />
+        <RouterProvider router={router} />
       </React.StrictMode>
     </LocalizationProvider>
   </ThemeProvider>

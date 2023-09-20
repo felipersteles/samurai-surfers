@@ -1,51 +1,20 @@
-import {
-  Box,
-  FormControl,
-  FormControlLabel,
-  Checkbox,
-  RadioGroup,
-  Typography,
-  Button,
-} from "@mui/material";
-import { DatePicker } from "@mui/x-date-pickers";
-import dayjs from "dayjs";
+import { FormControl, Typography, Button } from "@mui/material";
 import { SelectPlace } from "./SelectPlace";
 import { useState } from "react";
 import styled from "styled-components";
-import { WeatherService } from "../../../../services";
+import { CityDTO } from "../../../../dto";
+import { useNavigate } from "react-router-dom";
 
 export const OndasForm = () => {
-  const [ondasForm, setOndasForm] = useState<{ city: string }>();
+  const navigate = useNavigate();
+
+  const [city, setCity] = useState<CityDTO>();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // console.log(ondasForm);
-
-    if (!ondasForm) return;
-
-    // WeatherService.getWavesFromCity(ondasForm.city)
-    //   .then((res) => {
-    //     console.log(ondasForm.city);
-    //     console.log(res);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-
-    // caso o limite tenha esgotado comente o codigo acima
-    // e use a rota:
-    WeatherService.getMockWaves()
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  const setCity = (city: string) => {
-    setOndasForm({ city });
+    console.log(city);
+    navigate(`/${city?.name}/${city?.id}`);
   };
 
   return (
@@ -55,38 +24,6 @@ export const OndasForm = () => {
       <SelectPlace setCity={setCity} />
 
       <FormControl>
-        {/* <Typography>Informações</Typography>
-        <RadioGroup
-          row
-          aria-labelledby="demo-row-radio-buttons-group-label"
-          name="row-radio-buttons-group"
-        >
-          <FormControlLabel
-            value="female"
-            control={<Checkbox />}
-            label="Sea Level"
-          />
-          <FormControlLabel
-            value="male"
-            control={<Checkbox />}
-            label="Wind Speed"
-          />
-          <FormControlLabel
-            value="other"
-            control={<Checkbox />}
-            label="Wave Height"
-          />
-          <FormControlLabel
-            value="other"
-            control={<Checkbox />}
-            label="Swell Height"
-          />
-        </RadioGroup>
-
-        <Typography>Data</Typography>
-        <Box display="flex" gap="15px">
-          <DatePicker defaultValue={dayjs("2022-04-17")} />
-        </Box> */}
         <Button
           sx={{
             color: "black",

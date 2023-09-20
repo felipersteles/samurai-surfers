@@ -21,9 +21,9 @@ const getWavesByLoc = async (lat: number, lng: number) => {
   return res;
 };
 
-const getWavesByCity = async (city: string | string[]) => {
+const getWavesByCity = async (city: number | number[]) => {
   const cityObject = citiesJson.filter((c) => {
-    return c.name === city;
+    return c.id === city;
   });
 
   // console.log(cityObject[0].latitude);
@@ -34,8 +34,8 @@ const getWavesByCity = async (city: string | string[]) => {
 
   // limitar aos dia solicitado
   // e somente DIA (sem noite)
-  const start = new Date();
-  console.log(start);
+  var start = new Date();
+  start.setUTCHours(5, 0, 0, 0);
 
   var end = new Date();
   end.setUTCHours(23, 59, 59, 999);
@@ -54,7 +54,7 @@ const getWavesByCity = async (city: string | string[]) => {
       },
     })
     .then(({ data }) => {
-      return { city_id: cityObject[0], ondas: data };
+      return { city: cityObject[0], ondas: data };
     })
     .catch((err) => {
       console.log(err);
