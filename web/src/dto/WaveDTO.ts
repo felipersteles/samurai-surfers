@@ -4,7 +4,7 @@ export type WaveDTO = {
 };
 
 export type WaveHeightDTO = {
-  icon: number;
+  icon?: number;
   noaa: number;
-  sg: number;
+  sg?: number;
 };

@@ -13,7 +13,7 @@ export const OndasForm = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log(city);
+    // console.log(city);
     navigate(`/${city?.name}/${city?.id}`);
   };
 

@@ -63,7 +63,7 @@ export const SelectPlace = ({ setCity }: SelectPlaceParams) => {
   const getCitiesFromApi = useCallback((country: string, state: string) => {
     LocationService.getAllCities(country, state)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
 
         if (!res) return;
 

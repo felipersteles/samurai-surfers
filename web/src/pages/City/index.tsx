@@ -1,11 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { WeatherService } from "../../services";
 import { Box } from "@mui/material";
 import { WaveChart } from "./components";
+import { WaveDTO } from "../../dto";
 
 export const CityPage = () => {
   const { cityName, cityId } = useParams();
+  const [waveData, setWaveData] = useState<WaveDTO[]>();
 
   useEffect(() => {
     if (!cityId) return;
@@ -19,7 +21,8 @@ export const CityPage = () => {
     //   });
 
     WeatherService.getMockWaves().then((res) => {
-      console.log(res);
+      // console.log(res);
+      setWaveData(res.ondas.ondas.hours);
     });
   }, [cityId]);
 
@@ -29,7 +32,7 @@ export const CityPage = () => {
       <br />
       <br />
       <br />
-      <WaveChart />
+      <WaveChart waveData={waveData} />
     </Box>
   );
 };
