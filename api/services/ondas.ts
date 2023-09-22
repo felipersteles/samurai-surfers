@@ -1,5 +1,6 @@
 import axios from "axios";
 import citiesJson from "../data/cities.json";
+import { formatDate } from "@/utils";
 
 const getWavesByLoc = async (lat: number, lng: number) => {
   const res = await axios
@@ -35,7 +36,7 @@ const getWavesByCity = async (city: number | number[]) => {
   // limitar aos dia solicitado
   // e somente DIA (sem noite)
   var start = new Date();
-  start.setUTCHours(5, 0, 0, 0);
+  start.setUTCHours(0, 0, 0, 0);
 
   var end = new Date();
   end.setUTCHours(23, 59, 59, 999);
@@ -48,13 +49,13 @@ const getWavesByCity = async (city: number | number[]) => {
       params: {
         lat,
         lng,
-        params: "waveHeight,windSpeed",
+        params: "waveHeight,windSpeed,swellHeight",
         start,
         end,
       },
     })
     .then(({ data }) => {
-      return { city: cityObject[0], ondas: data };
+      return { city: cityObject[0], day: formatDate(start), ondas: data };
     })
     .catch((err) => {
       console.log(err);
